@@ -1,0 +1,67 @@
+{# templates/partials/navbar.html #}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <a class="navbar-brand fw-semibold" href="{% url 'home' %}">
+      Budget App
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarMain" aria-controls="navbarMain"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link {% if current_page == 'home' %}active{% endif %}"
+             {% if current_page == 'home' %}aria-current="page"{% endif %}
+             href="{% url 'home' %}">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if current_page == 'account' %}active{% endif %}"
+             {% if current_page == 'account' %}aria-current="page"{% endif %}
+             href="{% url 'login' %}">
+            Account
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {% if current_page == 'budget' %}active{% endif %}"
+             {% if current_page == 'budget' %}aria-current="page"{% endif %}
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Budget
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item" href="{% url 'budget:upload_csv' %}">
+                Upload CSV
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'budget:reports' %}">
+                Reports
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'budget:pdfs' %}">
+                PDFs
+              </a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Import Statement — Select Account{% endblock %}
+
+{% block content %}
+<div class="container py-4" style="max-width: 520px;">
+  <h1 class="h5 mb-3">Import Statement</h1>
+  <div class="text-muted small mb-3">Step 1 of 2</div>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {{ form|crispy }}
+
+    <div class="d-flex gap-2 mt-2">
+      <a class="btn btn-outline-secondary w-50" href="{% url 'home' %}">Cancel</a>
+      <button class="btn btn-primary w-50" type="submit">Next</button>
+    </div>
+
+    <div class="mt-3 text-center">
+      <a href="{# add account url later #}#">+ Add a new account</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

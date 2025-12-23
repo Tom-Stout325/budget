@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Import Statement — Upload{% endblock %}
+
+{% block content %}
+<div class="container py-4" style="max-width: 520px;">
+  <h1 class="h5 mb-3">Import Statement</h1>
+  <div class="text-muted small mb-3">Step 2 of 2</div>
+
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {{ form|crispy }}
+
+    <div class="d-flex gap-2 mt-2">
+      <button class="btn btn-outline-secondary w-50" name="wizard_goto_step" value="account" type="submit">
+        Back
+      </button>
+      <button class="btn btn-success w-50" type="submit">
+        Upload
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

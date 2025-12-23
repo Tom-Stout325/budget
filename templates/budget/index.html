@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Budget App{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+  <!-- Page-specific CSS -->
+  {% block extra_css %}{% endblock %}
+
+  {% block head %}{% endblock %}
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  {% include "partials/navbar.html" %}
+
+  <!-- Messages -->
+  {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Main Content -->
+  <main class="flex-fill">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top mt-auto py-3">
+    <div class="container text-center small text-muted">
+      © {{ now|date:"Y" }} Budget App
+    </div>
+  </footer>
+
+  <!-- Global JS -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Page-specific JS -->
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
