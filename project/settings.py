@@ -34,11 +34,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "formtools",
 
     # 3rd-party (from your trimmed requirements list)
     "crispy_forms",
     "crispy_bootstrap5",
+    "formtools",
 
     # Project apps
     "accounts",

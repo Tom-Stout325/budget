@@ -19,8 +19,9 @@
     </div>
 
     <div class="mt-3 text-center">
-      <a href="{# add account url later #}#">+ Add a new account</a>
+      <a href="{% url 'budget:account_create' %}">+ Add a new account</a>
     </div>
+
   </form>
 </div>
 {% endblock %}
